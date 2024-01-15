@@ -7,10 +7,7 @@
   }
   
   body {
-    background-image: url(../image/giraffe.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  
     font-family: var(--ff-main-font);
     color: #000;
     margin: 0;
