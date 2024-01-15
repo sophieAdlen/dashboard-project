@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fd8004ca32.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/media.css">
+  <script type="module" src="script/main.js" defer></script>
+  <script type="module" src="script/quotes-api.js"></script>
+  <script type="module" src="script/weather-api.js"></script>
+  <script type="module" src="script/bg-api.js"></script>
+  <title>Dashboard</title>
+</head>
+
+<body>
+
+  <div class="time-date-box">
+    <div id="time-date"></div>
+  </div>
+  <section class="container">
+    <div id="note-title" contenteditable="true" placeholder="skriv din titel.."></div>
+    <div class="card-wrapper">
+
+      <div class="card">
+        <div class="card-content">
+          <header> Snabblänkar</header>
+          <div>
+            <ul class="linkList">
+            </ul>
+          </div>
+          <button id="link-btn">
+            <div class="plus-btn"><i class="fa-solid fa-plus"></i></div>
+            lägg till länk
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <header> Dagens väder</header>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-content">
+          <header> Dagens quotes</header>
+          <div class="quotes-box">
+            <div class="quotes"></div>
+          </div>
+
+          <button id="quotes-btn">
+            <div class="quotes-btn"><i class="fa-solid fa-shuffle"></i></div>
+            Random quotes
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <header> Anteckningar</header>
+          <textarea id="note-area"></textarea>
+        </div>
+      </div>
+    </div>
+    <dialog class="add-link-container">
+      <form class="add-link-content">
+        <label for="url-title">Rubrik</label>
+        <input type="text" id="url-title">
+
+        <label for="url-input">URL</label>
+        <input type="url" id="url-input">
+        <div class="dialog-btn">
+          <button type="button" class="close-btn">Stäng</button>
+          <button type="button" class="add-btn">Ok</button>
+        </div>
+
+      </form>
+
+      </div>
+    </dialog>
+
+    <button id="bg-image-btn">
+    <i class="fa-solid fa-arrow-rotate-right"></i>
+    <div>Slumpa ny bakgrund</div>
+  </button>
+  </section>
+  
+
+</body>
+
+</html>

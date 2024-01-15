@@ -1,0 +1,10 @@
+@media (max-width: 500px){
+    .dialog-btn{
+        gap: 0.5rem;
+
+        }
+        .add-btn, .close-btn{
+            font-size: 0.8rem;
+            border-radius: 10px;
+        }
+}
