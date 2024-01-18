@@ -17,11 +17,15 @@ function showPosition(position) {
 getLocation();
 
 async function fetchData(lat, long) {
-  const APIkey = "49a051eadf02f74befae243a2fc60996";
+  const APIkey = "49a051eadf02f74befae243a2fc60996";  //lägg in egen api-nyckel
   const endpoint = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${APIkey}&units=metric`;
 
   try {
     const response = await axios.get(endpoint);
+    console.log(response.data)
+    console.log(response.data.city.name)
+    // console.log(response.data.city.timezone)
+   
     const weatherList = document.querySelector(".weatherlist");
 
     function createWeatherListItem(index) {
@@ -47,9 +51,9 @@ async function fetchData(lat, long) {
     }
 
     // Loopa igenom önskade index (0, 8 och 16)
-    const desiredIndices = [0, 8, 16];
+    const desiredIndex = [0, 8, 16];
 
-    desiredIndices.forEach(index => {
+    desiredIndex.forEach(index => {
       createWeatherListItem(index);
     });
 

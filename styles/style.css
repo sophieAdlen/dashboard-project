@@ -43,6 +43,7 @@
     padding: 1rem;
     font-weight: 700;
     text-align: center;
+
   }
   
   #note-title[placeholder]:empty:before {
@@ -106,6 +107,7 @@
     font-size: 1.2rem;
     margin-top: auto;
     margin-bottom: 0.5rem;
+    box-shadow: 0 0 4px rgba(244, 242, 242, 0.993);
   }
   
   .plus-btn,
@@ -240,8 +242,8 @@
   }
   
   .weatherlist img {
-  width: 4.5rem;
-  padding: 0.5rem;
+  width: 4rem;
+  padding: 0.5rem 0.2rem;
   }
   
   .text-content{
@@ -249,11 +251,12 @@
     flex-direction: column;
     justify-content: center;
     
+    
   }
   .secondrow{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 0.5rem;
    
   }
   .date, .description, .temperature{
@@ -264,6 +267,7 @@
   .date{
     font-size: 1.2rem;
     font-weight: 700;
+    margin-left: 1rem;
   }
   .description, .temperature{
      background-color: #fff;
@@ -320,7 +324,7 @@
   }
   
   #bg-image-btn {
-    margin: 10rem auto 2rem auto;
+    margin: 6rem auto 2rem auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -329,9 +333,11 @@
     color: #fff;
     font-size: 1.2rem;
     background: var(--clr-darker-bg);
+    box-shadow: 0 0 4px rgba(244, 242, 242, 0.993);
     padding: 0.5rem .5rem;
     border-radius: 10px;
     border: none;
+    
   }
   
   .fa-arrow-rotate-right {

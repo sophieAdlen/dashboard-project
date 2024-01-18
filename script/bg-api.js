@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Variables
-const unsplashKey = "iG4ea27tXkAxPtAgMOHooqIp0gly7EXIl-JX0uA6xYU";
+const unsplashKey = "iG4ea27tXkAxPtAgMOHooqIp0gly7EXIl-JX0uA6xYU"; //lägg in egen api-nyckel
 const url = `https://api.unsplash.com/photos/random/?client_id=${unsplashKey}`;
 const htmlElement = document.querySelector("#unsplashRandom");
 
