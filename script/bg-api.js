@@ -1,12 +1,11 @@
 import axios from "axios";
 
-// Variables
-const unsplashKey = "iG4ea27tXkAxPtAgMOHooqIp0gly7EXIl-JX0uA6xYU"; //lägg in egen api-nyckel
+const unsplashKey = ""; //lägg in egen api-nyckel
 const url = `https://api.unsplash.com/photos/random/?client_id=${unsplashKey}`;
 const htmlElement = document.querySelector("#unsplashRandom");
 
-// Funktion för att hämta en ny bakgrundsbild från Unsplash
-async function getUser(url) {
+// Plocka data från unsplash API
+const getUser = async (url) => {
   try {
     const response = await axios.get(url);
     console.log(response.data.urls.regular);
@@ -16,13 +15,10 @@ async function getUser(url) {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 getUser(url);
 
-// Lägg till klicklyssnare för knappen
-const bgImageBtn = document.getElementById("bg-image-btn");
-
-bgImageBtn.addEventListener("click", function() {
+bgImageBtn.addEventListener("click", () => {
   getUser(url);
 });

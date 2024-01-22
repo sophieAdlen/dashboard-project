@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Plocka data från API
 const fetchData = async () => {
   try {
     const response = await axios.get("https://type.fit/api/quotes");
@@ -12,10 +13,10 @@ const fetchData = async () => {
     }
   }
 };
-
+// Visa en slumpmässig citat
 const displayRandomQuote = async () => {
   const quotesContainer = document.querySelector(".quotes");
-  quotesContainer.innerHTML = ""; 
+  quotesContainer.innerHTML = "";
 
   const quotesData = await fetchData();
 

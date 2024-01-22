@@ -3,7 +3,7 @@ const showDateTime = () => {
     const timeDate = document.querySelector("#time-date");
 
     const date = new Date();
-    const monthNames = ["Januari", "Februari", "Fars", "April", "Maj", "Juni",
+    const monthNames = ["Januari", "Februari", "Mars", "April", "Maj", "Juni",
         "Juli", "Augusti", "September", "Oktober", "November", "December"];
 
     const day = date.getDate();
@@ -15,14 +15,14 @@ const showDateTime = () => {
     const hour = date.getHours();
     const min = date.getMinutes();
 
-    const time = `<strong id="time">${hour}:${(min < 10 ? "0" : "") + min}</strong>`; // Lägg till en nolla om minuten är mindre än 10
+    const time = `<strong id="time">${hour}:${(min < 10 ? "0" : "") + min}</strong>`;
     timeDate.innerHTML = `${time} ${today}`;
 };
 
 // Uppdatera tiden och datumet varje sekund
 setInterval(showDateTime, 1000);
 
-// Lokal lagring för rubriken
+// Lokalstorage för rubriken
 const noteTitle = document.querySelector("#note-title");
 const noteArea = document.querySelector("#note-area");
 
@@ -43,7 +43,7 @@ noteArea.addEventListener('input', () => {
     localStorage.setItem('savedNoteArea', noteArea.value);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const linkBtn = document.getElementById('link-btn');
     const closeBtn = document.querySelector('.close-btn');
     const addLinkContainer = document.querySelector('.add-link-container');
@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlTitleInput = document.getElementById('url-title');
     const urlInput = document.getElementById('url-input');
 
-    linkBtn.addEventListener('click', function () {
+    linkBtn.addEventListener('click', () => {
         addLinkContainer.showModal();
     });
 
-    closeBtn.addEventListener('click', function () {
+    closeBtn.addEventListener('click', () => {
         addLinkContainer.close();
         urlTitleInput.value = '';
         urlInput.value = '';
     });
 
-    addBtn.addEventListener('click', function () {
+    addBtn.addEventListener('click', () => {
         const linkName = urlTitleInput.value;
         const linkURL = urlInput.value;
 
@@ -74,11 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
         urlInput.value = '';
     });
 
-    // Laddar sparade länkar på sidan
     loadLinks();
 });
 
-function addLink(name, url) {
+// för att lägga till en länk
+const addLink = (name, url) => {
     const list = document.querySelector('.linkList');
     const li = document.createElement('li');
     const faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${url}`;
@@ -87,33 +87,31 @@ function addLink(name, url) {
                     <button class="removelink-btn">x</button>`;
     list.appendChild(li);
 
-    //eventlyssnare för removelink-btn i det nya li-elementet
     const removeButton = li.querySelector('.removelink-btn');
     removeButton.addEventListener('click', () => removeLink(removeButton));
-
-    // Sparar länkar till localStorage
+    
     saveLinks();
-}
-
-function removeLink(button) {
+};
+// funktion för att ta bort en länk
+const removeLink = (button) => {
     const list = document.querySelector('.linkList');
     const li = button.closest('li');
     list.removeChild(li);
 
-    // Sparar de uppdaterade länkarna till localStorage
     saveLinks();
-}
-
-function saveLinks() {
+};
+// för att spara länkar till localStorage
+const saveLinks = () => {
     const links = [];
     document.querySelectorAll('.linkList li').forEach(li => {
         const link = li.querySelector('a');
         links.push({ name: link.textContent, url: link.getAttribute('href') });
     });
     localStorage.setItem('fastlinks', JSON.stringify(links));
-}
+};
 
-function loadLinks() {
+// för att ladda länkar från localStorage
+const loadLinks = () => {
     const savedLinks = localStorage.getItem('fastlinks');
     if (savedLinks) {
         const links = JSON.parse(savedLinks);
@@ -121,4 +119,4 @@ function loadLinks() {
             addLink(link.name, link.url);
         });
     }
-}
+};
